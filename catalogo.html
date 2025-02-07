@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Animales - Zootech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <div class="container d-flex align-items-center">
+            <img src="src/logo.png" alt="Logo" width="80" class="me-3">
+            <h1 class="m-0">Zootech</h1>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ubicacion.html"><i class="fas fa-map"></i> Ubicación</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="catalogo.html"><i class="fas fa-paw"></i> Animales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sugerencias.html"><i class="fas fa-comments"></i> Sugerencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container mt-4">
+        <h2 class="text-center fw-bold text-danger">Catálogo de Animales</h2>
+        <div class="row mt-4" id="animales-container">
+            <!-- Animales se cargarán aquí -->
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <div class="container">
+            <p>© 2025 TecnoSystem - Todos los derechos reservados</p>
+            <div class="social-icons">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const animales = [
+            { nombre: "Pantera", imagen: "src/Animales/pantera.jpeg", descripcion: { nombreCientifico: "Panthera pardus", orden: "Carnivora", familia: "Felidae", longevidad: "12-15 años (vida silvestre), 20-23 años (cautiverio)", crias: "2-4 crías por camada", habitat: "Selvas y sabanas" } },
+            { nombre: "Jirafa", imagen: "src/Animales/Jirafa.jpg", descripcion: { nombreCientifico: "Giraffa camelopardalis", orden: "Artiodactyla", familia: "Giraffidae", longevidad: "25 años (vida silvestre), 28 años (cautiverio)", crias: "1 cría por camada", habitat: "Sabanas africanas" } },
+            { nombre: "Avestruz", imagen: "src/Animales/Avestryz.jpeg", descripcion: { nombreCientifico: "Struthio camelus", orden: "Struthioniformes", familia: "Struthionidae", longevidad: "30-40 años (vida silvestre), 50-60 años (cautiverio)", crias: "10-12 huevos por nidada", habitat: "Áreas abiertas de África" } },
+            { nombre: "Antílope", imagen: "src/Animales/Antp.jpeg", descripcion: { nombreCientifico: "Antilopinae", orden: "Artiodactyla", familia: "Bovidae", longevidad: "10-15 años (vida silvestre), 20 años (cautiverio)", crias: "1-2 crías por camada", habitat: "Sabanas y desiertos" } },
+            { nombre: "León", imagen: "src/Animales/Leon.jpg", descripcion: { nombreCientifico: "Panthera leo", orden: "Carnivora", familia: "Felidae", longevidad: "10-14 años (vida silvestre), 20 años (cautiverio)", crias: "2-4 crías por camada", habitat: "Sabanas y pastizales" } },
+            { nombre: "Águila", imagen: "src/Animales/aguila.jpg", descripcion: { nombreCientifico: "Aquila chrysaetos", orden: "Accipitriformes", familia: "Accipitridae", longevidad: "20-30 años (vida silvestre), 40-50 años (cautiverio)", crias: "1-3 huevos por nidada", habitat: "Montañas y áreas abiertas" } },
+            { nombre: "Tigre", imagen: "src/Animales/tigre.jpg", descripcion: { nombreCientifico: "Panthera tigris", orden: "Carnivora", familia: "Felidae", longevidad: "10-15 años (vida silvestre), 20-26 años (cautiverio)", crias: "2-4 crías por camada", habitat: "Selvas y bosques" } },
+            { nombre: "Serpiente", imagen: "src/Animales/serpiente.jpg", descripcion: { nombreCientifico: "Serpentes", orden: "Squamata", familia: "Varias", longevidad: "10-20 años (vida silvestre), 20-30 años (cautiverio)", crias: "10-50 huevos por nidada", habitat: "Diversos hábitats" } },
+            { nombre: "Oso Pardo", imagen: "src/Animales/oso_pardo.jpg", descripcion: { nombreCientifico: "Ursus arctos", orden: "Carnivora", familia: "Ursidae", longevidad: "20-25 años (vida silvestre), 30-35 años (cautiverio)", crias: "1-4 crías por camada", habitat: "Bosques y montañas" } },
+            { nombre: "Oveja", imagen: "src/Animales/oveja.jpg", descripcion: { nombreCientifico: "Ovis aries", orden: "Artiodactyla", familia: "Bovidae", longevidad: "10-12 años (vida silvestre), 15-20 años (cautiverio)", crias: "1-2 crías por camada", habitat: "Granjas y pastizales" } },
+            { nombre: "Hipopótamo", imagen: "src/Animales/hipopotamo.jpg", descripcion: { nombreCientifico: "Hippopotamus amphibius", orden: "Artiodactyla", familia: "Hippopotamidae", longevidad: "40-50 años (vida silvestre), 50-60 años (cautiverio)", crias: "1 cría por camada", habitat: "Ríos y lagos" } },
+            { nombre: "Mapache", imagen: "src/Animales/mapache.jpg", descripcion: { nombreCientifico: "Procyon lotor", orden: "Carnivora", familia: "Procyonidae", longevidad: "2-3 años (vida silvestre), 10-15 años (cautiverio)", crias: "3-7 crías por camada", habitat: "Bosques y áreas urbanas" } }
+        ];
+
+        const container = document.getElementById('animales-container');
+
+        animales.forEach(animal => {
+            const card = document.createElement('div');
+            card.className = 'col-md-3 mb-4';
+            card.innerHTML = `
+                <div class="card h-100">
+                    <img src="${animal.imagen}" class="card-img-top" alt="${animal.nombre}">
+                    <div class="card-body">
+                        <h5 class="card-title">${animal.nombre}</h5>
+                    </div>
+                </div>
+            `;
+            card.querySelector('.card').addEventListener('click', function() {
+                const modal = document.createElement('div');
+                modal.className = 'modal fade show d-block';
+                modal.innerHTML = `
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">${animal.nombre}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>Nombre Científico:</strong> ${animal.descripcion.nombreCientifico}</p>
+                                        <p><strong>Orden:</strong> ${animal.descripcion.orden}</p>
+                                        <p><strong>Familia:</strong> ${animal.descripcion.familia}</p>
+                                        <p><strong>Longevidad:</strong> ${animal.descripcion.longevidad}</p>
+                                        <p><strong>Crías:</strong> ${animal.descripcion.crias}</p>
+                                        <p><strong>Hábitat:</strong> ${animal.descripcion.habitat}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="${animal.imagen}" class="img-fluid" alt="${animal.nombre}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                const backdrop = document.createElement('div');
+                backdrop.className = 'modal-backdrop fade show';
+                document.body.appendChild(backdrop);
+
+                modal.querySelector('.btn-close').addEventListener('click', function() {
+                    modal.remove();
+                    backdrop.remove();
+                });
+
+                backdrop.addEventListener('click', function() {
+                    modal.remove();
+                    backdrop.remove();
+                });
+            });
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>

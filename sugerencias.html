@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugerencias - Zootech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <div class="container d-flex align-items-center">
+            <img src="src/logo.png" alt="Logo" width="80" class="me-3">
+            <h1 class="m-0">Zootech</h1>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ubicacion.html"><i class="fas fa-map"></i> Ubicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html"><i class="fas fa-paw"></i> Animales</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sugerencias.html"><i class="fas fa-comments"></i> Sugerencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-comments"></i> Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container mt-4">
+        <h2 class="text-center fw-bold text-danger">Sugerencias</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chat de Sugerencias</h5>
+                        <div id="chat-box" class="mb-3" style="height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px;">
+                            <!-- Mensajes del chat -->
+                        </div>
+                        <form id="chat-form">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="message" placeholder="Escribe tu mensaje..." required>
+                            </div>
+                            <button type="submit" class="btn btn-danger w-100">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p>© 2025 TecnoSystem - Todos los derechos reservados</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const message = document.getElementById('message').value;
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML += `<p><strong>Tú:</strong> ${message}</p>`;
+            document.getElementById('message').value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
+    </script>
+</body>
+</html>
